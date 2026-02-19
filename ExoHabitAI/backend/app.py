@@ -1,7 +1,7 @@
 from flask_cors import CORS
 from flask import Flask, request, jsonify
 import joblib
-from utils import build_input_dataframe, validate_input
+from backend.utils import build_input_dataframe, validate_input
 
 app = Flask(__name__)
 CORS(app)
@@ -80,5 +80,6 @@ def rank_planets():
 
 if __name__ == "__main__":
     app.run()
+
 
 
