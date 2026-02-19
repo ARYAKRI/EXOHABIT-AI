@@ -7,10 +7,19 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model and feature columns
-model = joblib.load("models/habitability_model.pkl")
-feature_columns = joblib.load("feature_columns.pkl")
+import os
+import joblib
 
-scaler = joblib.load("models/scaler.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "models", "habitability_model.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "models", "scaler.pkl")
+FEATURES_PATH = os.path.join(BASE_DIR, "feature_columns.pkl")
+
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
+feature_columns = joblib.load(FEATURES_PATH)
+
 
 @app.route("/")
 def home():
@@ -80,6 +89,7 @@ def rank_planets():
 
 if __name__ == "__main__":
     app.run()
+
 
 
 
