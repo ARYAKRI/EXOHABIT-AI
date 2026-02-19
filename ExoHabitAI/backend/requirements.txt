@@ -9,3 +9,4 @@ pandas
 
 xgboost>=2.0.0
 
+sklearn
