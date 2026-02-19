@@ -6,3 +6,6 @@ gunicorn
 
 flask-cors
 pandas
+
+xgboost>=2.0.0
+
