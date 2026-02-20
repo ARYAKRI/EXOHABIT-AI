@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import joblib
 from backend.utils import build_input_dataframe, validate_input
 
@@ -20,10 +20,12 @@ model = joblib.load(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)
 feature_columns = joblib.load(FEATURES_PATH)
 
+from flask import render_template
 
 @app.route("/")
 def home():
-    return "ExoHabitAI Backend running (structured)"
+    return render_template("index.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -89,6 +91,7 @@ def rank_planets():
 
 if __name__ == "__main__":
     app.run()
+
 
 
 
