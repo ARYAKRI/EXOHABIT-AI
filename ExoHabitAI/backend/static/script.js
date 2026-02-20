@@ -17,7 +17,7 @@
   resultDiv.innerHTML = "<div class='alert alert-info'>Predicting...</div>";
 
   try {
-    const response = await fetch("https://exohabit-ai-chse.onrender.com/predict", {
+    const response = await fetch("/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
